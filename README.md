@@ -1,85 +1,65 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+code run: npm run start:dev
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+1.-You're building a high-throughput API for a cryptocurrency trading
+platform. For this platform, time is extremely important because
+microseconds count when processing high-volume trade orders. For
+communicating with the API, you want to choose the verb that is fastest
+for read-only operations.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+R//a.GET
+Es el HTTP estándar para realizar operaciones de lectura (read-only) en una API.
 
-## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+2.-You work for a Customer Relationship Management (CRM) company. The
+company's clients gain CRM access through a RESTful API. The CRM allows
+clients to add contact information for customers, prospects, and related
+persons (e.g., virtual assistants or marketing directors). You want to choose an
+appropriate API request path so clients can easily retrieve information for a
+single contact while also being flexible for future software changes.
 
-## Project setup
+R// b./contacts/{contact_id}
+Es el camino más apropiado para recuperar la información de un solo contacto (que puede ser un cliente, prospecto u otra persona relacionada) de manera flexible y específica.
 
-```bash
-$ npm install
-```
+3. You work for a large social media network, and you've been tasked witherror
+handling for the API. You're trying to decide on an appropriate errorcode for
+authentication failures based on non-existent users and incorrect passwords.
+You want to balance security against brute force attacks with providing
+descriptive and true error codes.
 
-## Compile and run the project
+R//d. 401 if the user doesn't exist or if the password is wrong.
+El código 401 Unauthorized es el más adecuado cuando un usuario no está autenticado correctamente.
 
-```bash
-# development
-$ npm run start
+4. You're writing documentation for requesting information about a given user in
+your system. Your system uses UUIDS (universally unique identifiers) as user
+identifiers. In your documentation, you want to show an example.
 
-# watch mode
-$ npm run start:dev
+R// true
+Es mejor utilizar un UUID falso en el ejemplo de código de la documentación, ya que proporciona un formato realista y da a los desarrolladores una idea clara de cómo debería verse el UUID en las solicitudes reales.
 
-# production mode
-$ npm run start:prod
-```
+5.You're building code to handle errors issued from a remote API server. The
+response may or may not have an error.
 
-## Run tests
+R// b. Check for the presence of an error. If it exists, throw an exception with the error.
+Lanzar una excepción inmediatamente cuando se detecta un error en la respuesta es una buena práctica.
 
-```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
+6. You have two classes: a database driver and an email driver. Both classes
+need to set errors so that your front-end interface displays any errors that
+transpire on your platform.
 
-# test coverage
-$ npm run test:cov
-```
+R//c. Make a driver-based error provider to handle errors in all classes that can issue errors.
+Crear un proveedor de errores basado en controladores (driver-based error provider) es una solución más robusta y centralizada.
 
-## Resources
 
-Check out a few resources that may come in handy when working with NestJS:
+7. You need to name the private method in your class that handles
+loopingthrough eCommerce products to collect and parse data. That data gets
+stored in an array and set as a class property.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+R//b. loopProductsAndParse()
+El nombre del método debe ser conciso y expresar claramente su propósito.
 
-## Support
+8.There are multiple places in your codebase that need to access the
+database. To access the database, you need to supply credentials. You
+want to balance security with useability.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+R//d. Put them in a .env file, load data from it into a configuration system, then request the credentials from a database service provider.
