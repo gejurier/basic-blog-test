@@ -1,3 +1,27 @@
+SCORE EXERCISE
+
+function calculateScore(arr) {
+    let score = 0;
+    for (let num of arr) {
+      if (num === 5) {
+        score += 5;
+      }
+      else if (num % 2 === 0) {
+        score += 1;
+      }
+      else {
+        score += 3;
+      }
+    }
+    return score;
+  }
+  
+  // Ejemplos de uso:
+  console.log(calculateScore([1, 2, 3, 4, 5])); // 13
+  console.log(calculateScore([17, 19, 21]));    // 9
+  console.log(calculateScore([5, 5, 5]));       // 15
+  
+
 code run: npm run start:dev
 
 1.-You're building a high-throughput API for a cryptocurrency trading
