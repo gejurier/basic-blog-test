@@ -87,3 +87,19 @@ database. To access the database, you need to supply credentials. You
 want to balance security with useability.
 
 R//d. Put them in a .env file, load data from it into a configuration system, then request the credentials from a database service provider.
+
+SCENARIO ANALYSIS
+Para optimizar un sistema distribuido que sufre de latencias y fallos en uno de sus microservicios, seguiría el siguiente enfoque:
+
+1. Identificación del problema
+Primero, implementaría herramientas de monitoreo y trazabilidad, como Prometheus y Grafana, para analizar métricas clave como tiempos de respuesta, tasas de error y utilización de recursos. También utilizaría herramientas como Jaeger o Zipkin para rastrear las solicitudes a lo largo de los microservicios y así identificar exactamente dónde se producen las latencias o fallos.
+Además, analizaría los registros del sistema (logs) para detectar patrones recurrentes de fallos o sobrecargas en momentos específicos.
+2. Desarrollo de soluciones
+Autoscaling: Implementaría un sistema de escalado automático (como Kubernetes) para ajustar dinámicamente el número de instancias en función de la carga del sistema, asegurando que los microservicios no se saturen durante picos de tráfico.
+Balanceo de carga: Usaría un balanceador de carga para distribuir uniformemente las solicitudes entre las instancias disponibles, evitando que una sola instancia quede sobrecargada.
+Caché: Integraría un sistema de caché para almacenar respuestas repetidas, mejorando el tiempo de respuesta y reduciendo la carga en los microservicios más solicitados.
+Circuit Breaker: Implementaría un patrón de circuit breaker para prevenir que un fallo en un microservicio impacte al sistema completo. Esto permitiría devolver errores controlados cuando un servicio está inactivo.
+Reintentos con backoff exponencial: Configuraría reintentos automáticos con un retraso incremental (backoff exponencial) en caso de fallos temporales, evitando una sobrecarga en los servicios afectados.
+3. Asegurar alta disponibilidad y resiliencia
+Replicación: Replicaría los microservicios en diferentes zonas de disponibilidad para garantizar que si una zona falla, las otras instancias sigan funcionando sin interrupciones.
+Tolerancia a fallos: Diseñaría los microservicios con mecanismos de tolerancia a fallos, para que el fallo de un servicio no interrumpa el funcionamiento de todo el sistema, usando técnicas de fallback que proporcionen respuestas predeterminadas en caso de fallos.
